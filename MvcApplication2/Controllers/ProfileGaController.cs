@@ -13,7 +13,7 @@ namespace MvcApplication2.Controllers
     public class ProfileGaController : Controller
     {
         private GammeContext db = new GammeContext();
-        public List<Gamme> ListG = new List<Gamme>();
+        
 
         //
         // GET: /ProfileGa/
@@ -140,9 +140,10 @@ namespace MvcApplication2.Controllers
                 G.Next_Posts = model.PosteSuivantSelected;
                 G.Nbr_Passage = int.Parse(model.Nbr_Passage);
                 G.Position = int.Parse(model.Position);
-                ListG.Add(G);
-                db.Gammes.Add(G);
-                db.SaveChanges();
+                model.ListG.Add(G);
+                //db.Gammes.Add(G);
+                //db.SaveChanges();
+
             }
             return RedirectToAction("Index");
            
@@ -162,7 +163,7 @@ namespace MvcApplication2.Controllers
             Console.WriteLine("" + model.Nbr_Passage);
            
                 Gamme G = new Gamme();
-                ListG.Remove(G);
+               // ListG.Remove(G);
                 db.Gammes.Remove(G); 
                 G.ID_Gamme = model.SelectedProfile_Ga;
                 G.ID_Poste = model.SelectedPoste;
@@ -170,7 +171,7 @@ namespace MvcApplication2.Controllers
                 G.Next_Posts = model.PosteSuivantSelected;
                 G.Nbr_Passage = int.Parse(model.Nbr_Passage);
                 G.Position = int.Parse(model.Position);
-                ListG.Add(G);
+                //ListG.Add(G);
                 db.Gammes.Add(G);
                 db.SaveChanges();
             

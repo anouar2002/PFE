@@ -112,7 +112,7 @@
         <th>Opérations</th>
     </tr>
 
-<% foreach (var item in Model.GaItems) { %>
+<% foreach (var item in Model.ListG) { %>
     <tr>
          <td>
             <%: Html.DisplayFor(modelItem => item.ID_Gamme) %>
